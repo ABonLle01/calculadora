@@ -1,36 +1,34 @@
 package org.example.ui;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.OptionalDataException;
 
 public class Ventana extends JFrame{
     private JPanel panel;
-    private JTextField texto;
-    private JButton a1Button;
+    private JButton porcent;
+    private JButton powerButton;
+    private JButton a9Button1;
+    private JButton button4;
+    private JButton button5;
+    private JButton borrarButton;
+    private JButton a1XButton;
+    private JButton a7Button1;
     private JButton a4Button;
-    private JButton a7Button;
-    private JButton a2Button;
+    private JButton a1Button;
+    private JButton button11;
+    private JButton a8Button1;
     private JButton a5Button;
-    private JButton a8Button;
-    private JButton a3Button;
+    private JButton a2Button;
+    private JButton CEButton;
+    private JButton button16;
     private JButton a6Button;
-    private JButton a9Button;
-    private JPanel columna1;
-    private JPanel columna2;
-    private JPanel columna3;
-    private JButton sumar;
-    private JButton restar;
-    private JButton multiplicar;
-    private JButton dividir;
-    private JPanel operaciones;
+    private JButton cButton;
+    private JButton a3Button;
+    private JButton button21;
     private JButton a0Button;
-    private JButton igual;
-    private JButton punto;
-    private JPanel numeros;
-    private JPanel arriba;
-    private JPanel abajo;
+    private JButton button23;
+    private JButton button24;
+    private JButton sqrtButton;
+    private JTextField textField1;
 
 
     public Ventana(){
