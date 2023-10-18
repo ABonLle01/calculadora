@@ -123,7 +123,8 @@
         </constraints>
         <properties>
           <font name="Arial" size="16" style="0"/>
-          <text value="borrar"/>
+          <icon value="org/example/img/borrar.png"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="e187c" class="javax.swing.JButton" binding="restaButton">
@@ -222,7 +223,8 @@
         </constraints>
         <properties>
           <font name="Arial" size="16" style="0"/>
-          <text value="sqrt"/>
+          <icon value="org/example/img/raiz2.png"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="94139" class="javax.swing.JLabel" binding="info">

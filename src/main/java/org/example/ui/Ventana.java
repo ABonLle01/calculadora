@@ -1,8 +1,8 @@
 package org.example.ui;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.util.Objects;
 
 public class Ventana extends JFrame{
 
@@ -11,11 +11,6 @@ public class Ventana extends JFrame{
 
     private char op;
 
-    private void getOperador(String botonTexto){
-        op=botonTexto.charAt(0);
-        total1=total2+Double.parseDouble(resTextField.getText());
-        resTextField.setText("");
-    }
 
     private JPanel panel;
     private JButton porcentajeButton;
@@ -42,9 +37,15 @@ public class Ventana extends JFrame{
     private JButton comaButton;
     private JButton igualButton;
     private JButton sqrtButton;
+
     private JTextField resTextField;
     private JLabel info;
 
+    private void getOperador(String botonTexto){
+        op=botonTexto.charAt(0);
+        total1=Double.parseDouble(resTextField.getText());
+        resTextField.setText("");
+    }
 
     public Ventana(){
         this.setContentPane(panel);
@@ -83,6 +84,7 @@ public class Ventana extends JFrame{
             String button5Text = button5.getText();
             resTextField.setText(resTextField.getText()+button5Text);
         });
+
         button6.addActionListener(e -> {
             String button6Text = button6.getText();
             resTextField.setText(resTextField.getText()+button6Text);
@@ -144,30 +146,86 @@ public class Ventana extends JFrame{
 
 
         comaButton.addActionListener(e -> {
-            if(resTextField.getText().isEmpty()){
+            if (resTextField.getText().isEmpty()) {
                 resTextField.setText("0.");
-            }else if(resTextField.getText().contains(".")){
-                comaButton.setEnabled(false);
-            }else{
-                String comaButtonText = restaButton.getText()+comaButton.getText();
-                resTextField.setText(comaButtonText);
+            } else if (!resTextField.getText().contains(".")) {
+                resTextField.setText(resTextField.getText() + ".");
             }
-            comaButton.setEnabled(true);
+        });
+
+        masMenosButton.addActionListener(e -> {
+            if (!resTextField.getText().isEmpty()) {
+                double valor = Double.parseDouble(resTextField.getText());
+                valor = -valor;
+                resTextField.setText(Double.toString(valor));
+            }
+        });
+
+        a1XButton.addActionListener(e -> {
+            if (!resTextField.getText().isEmpty()) {
+                double valor = Double.parseDouble(resTextField.getText());
+                if (valor != 0) {
+                    valor = 1 / valor;
+                    resTextField.setText(Double.toString(valor));
+                } else {
+                    // Manejar el caso de división por cero aquí
+                    resTextField.setText("Error");
+                }
+            }
+        });
+
+        sqrtButton.addActionListener(e -> {
+            if (!resTextField.getText().isEmpty()) {
+                double valor = Double.parseDouble(resTextField.getText());
+                if (valor >= 0) {
+                    valor = Math.sqrt(valor);
+                    resTextField.setText(Double.toString(valor));
+                } else {
+                    // Manejar el caso de raíz cuadrada de número negativo aquí
+                    resTextField.setText("Error");
+                }
+            }
+        });
+
+        cButton.addActionListener(e -> {
+            resTextField.setText("");
+            total1 = 0.0;
+            total2 = 0.0;
+            op = ' ';
+        });
+
+        borrarButton.addActionListener(e -> {
+            String textoActual = resTextField.getText();
+            if (!textoActual.isEmpty()) {
+                textoActual = textoActual.substring(0, textoActual.length() - 1);
+                resTextField.setText(textoActual);
+            }
+        });
+
+        powerButton.addActionListener(e -> {
+            if (!resTextField.getText().isEmpty()) {
+                double valor = Double.parseDouble(resTextField.getText());
+                valor = Math.pow(valor, 2);
+                resTextField.setText(Double.toString(valor));
+            }
+        });
+
+        porcentajeButton.addActionListener(e -> {
+            if (!resTextField.getText().isEmpty()) {
+                double valor = Double.parseDouble(resTextField.getText());
+                valor = valor / 100.0;
+                resTextField.setText(Double.toString(valor));
+            }
         });
 
 
 
+
     }
-
-
 
 
     public void load(){
         this.setVisible(true);
     }
 
-    private Integer pulsarNumero(Integer n) {
-        System.out.println("Botón "+n+" pulsado");
-        return n;
-    }
 }
