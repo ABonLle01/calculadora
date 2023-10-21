@@ -1,12 +1,10 @@
 package org.example;
 
-import org.example.ui.Ventana;
+import org.example.ui.VentanaCalculadora;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
-
-        var ventana = new Ventana();
+        var ventana = new VentanaCalculadora();
         ventana.load();
     }
 }
